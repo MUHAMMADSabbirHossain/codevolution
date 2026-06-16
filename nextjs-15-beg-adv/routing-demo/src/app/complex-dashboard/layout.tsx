@@ -7,13 +7,17 @@ export default function ComplexDashboardLayout({
   users, // @users folder name
   revenue, // @revenue folder name
   notifications, // @notifications folder name
+  login,
 }: {
   children: React.ReactNode;
   users: React.ReactNode;
   revenue: React.ReactNode;
   notifications: React.ReactNode;
+  login: React.ReactNode;
 }) {
-  return (
+  const isLoggedIn = true;
+
+  return isLoggedIn ? (
     <>
       <div>{children}</div> {/* Content from page.tsx */}
       {/* <UsersAnalytics />
@@ -27,6 +31,8 @@ export default function ComplexDashboardLayout({
         <div className="flex flex-1">{notifications}</div>
       </div>
     </>
+  ) : (
+    <>{login}</>
   );
 }
 
