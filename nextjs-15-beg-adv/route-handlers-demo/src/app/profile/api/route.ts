@@ -1,4 +1,4 @@
-import { headers } from "next/headers";
+import { headers, cookies } from "next/headers";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -19,8 +19,15 @@ export async function GET(request: NextRequest) {
   // return new Response("Profile API Data"); // plain text
   // return new Response("<h1>Profile API Data</h1>"); // content-type: text/plain;charset=UTF-8
 
+  const theme = request.cookies.get("theme");
+  console.log(theme);
+
+  const cookieStore = await cookies();
+  cookieStore.set("resultsPerPage", "20");
+  console.log(cookieStore.get("resultsPerPage"));
+
   return new Response("<h1>Profile API Data</h1>", {
-    headers: { "Content-Type": "text/html" },
+    headers: { "Content-Type": "text/html", "Set-Cookie": "theme=dark" },
   }); // content-type: text/html
 }
 
