@@ -1,4 +1,4 @@
-import "server only"; // server only code cannot be imported into client components
+import "server-only"; // server only code cannot be imported into client components
 
 export const serverSideFunction = () => {
   console.log(
