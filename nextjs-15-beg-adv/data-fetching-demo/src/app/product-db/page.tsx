@@ -25,7 +25,7 @@ export default async function ProductsPrismaDBPage({
           >
             <h2 className="text-xl font-semibold">{product.title}</h2>
             <p>{product.description}</p>
-            <p className="font-medium text-lg"> {product.price}</p>
+            <p className="font-medium text-lg">${product.price}</p>
           </li>
         ))}
       </ul>
